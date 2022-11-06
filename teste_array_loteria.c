@@ -8,7 +8,8 @@ int main()
 	int valorJogado;
 	int pontuacao = 0;
 	int erros = 0;
-	int numerosAcertados[5];
+	int m = 0;
+	int numerosJogados[5];
 
 
 
@@ -47,9 +48,10 @@ int main()
 	{
 		system("clear");
 
-		printf("JOGADOR, É SUA VEZ DE JOGAR!!\n\n");
+		printf("JOGADOR, É SUA VEZ DE JOGAR!!\n");
+		printf("Para ganhar você precisa acertar no mínimo 5 números.\n\n");
 
-		for (int i = 0; i <= 5; i++)
+		for (int i = 0; i <= 4; i++)
 		{
 			printf("Entre com seu numero\n");
 			scanf("%i", &valorJogado);
@@ -58,13 +60,14 @@ int main()
 			{
 				if (valorJogado == arrayLoteria[v])
 				{
-					printf("Numero Correto!!\n");
+					numerosJogados[i] = valorJogado;
+					printf("*** Numero Correto!! ***\n");
 					pontuacao++;
 					break;
 				}
 				else if(v == 9)
 				{
-					numerosAcertados[i] = valorJogado;
+					numerosJogados[i] = valorJogado;
 					printf("Numero errado!!\n");
 					erros++;
 				}
@@ -72,7 +75,9 @@ int main()
 				
 			}
 
-			if (i == 5)
+			m = i;
+		}
+		if (m == 4)
 			{
 				printf("Sua pontuação é: %i\n", pontuacao);
 				printf("Os numeros corretos é\n");
@@ -82,14 +87,12 @@ int main()
 				}
 				printf("\n\n");
 				printf("Seus numeros jogados são:\n");
-				for (int t = 0; t <= 5 ; t++)
+				for (int t = 0; t <= 4 ; t++)
 				{
-					printf("%i", numerosAcertados[t]);
+					printf("%i-", numerosJogados[t]);
 				}
 				
 			}
-		}
-		
 		
 		
 
